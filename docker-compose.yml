@@ -1,16 +1,17 @@
 version: '3'
 services:
   php-apache:
+    container_name: laravel-container
     build: ./
     ports:
       - 8000:80
     volumes:
       - ./src/:/var/www/laravel
-      - ./apache/default.conf:/etc/apache2/sites-enabled/000-default.conf
     depends_on:
       - mysql
 
   mysql:
+    container_name: mysql-container
     build: ./db
     ports:
       - 4306:3306
