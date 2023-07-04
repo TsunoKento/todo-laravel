@@ -5,7 +5,14 @@ RUN apt update \
     git \
     zip \
     unzip \
-    vim
+    vim \
+    && pecl install xdebug \
+    && docker-php-ext-enable xdebug \
+    && docker-php-ext-install pdo_mysql \
+    && a2enmod rewrite
+
+COPY ./apache/default.conf /etc/apache2/sites-enabled/000-default.conf
+COPY ./php/php.ini /usr/local/etc/php/php.ini
 
 WORKDIR /var/www/laravel
 
