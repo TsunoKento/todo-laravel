@@ -22,3 +22,16 @@ services:
       - MYSQL_PASSWORD=${MYSQL_PASSWORD}
     volumes:
       - ./db/data:/var/lib/mysql
+
+  mysql-test:
+    container_name: mysql-test-container
+    build: ./db
+    ports:
+      - 5306:3306
+    environment:
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+      - MYSQL_DATABASE=${MYSQL_DATABASE}
+      - MYSQL_USER=${MYSQL_USER}
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+    volumes:
+      - ./db/testdata:/var/lib/mysql
