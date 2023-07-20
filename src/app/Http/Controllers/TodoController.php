@@ -4,24 +4,18 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreTodoRequest;
 use App\Http\Requests\UpdateTodoRequest;
+use App\Http\Resources\TodoCollection;
 use App\Models\Todo;
+use App\UseCases\Todo\IndexAction;
 
 class TodoController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * todoの一覧を返す
      */
-    public function index()
+    public function index(IndexAction $action)
     {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
+        return new TodoCollection($action());
     }
 
     /**
@@ -36,14 +30,6 @@ class TodoController extends Controller
      * Display the specified resource.
      */
     public function show(Todo $todo)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Todo $todo)
     {
         //
     }
