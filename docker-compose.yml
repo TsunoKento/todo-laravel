@@ -5,6 +5,7 @@ services:
     build: ./
     ports:
       - 8000:80
+      - 9003:9003
     volumes:
       - ./src/:/var/www/laravel
     depends_on:

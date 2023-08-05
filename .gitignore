@@ -4,3 +4,6 @@
 
 db/data/*
 db/testdata/*
+
+docker-compose.override.yml
+.devcontainer.json
