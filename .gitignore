@@ -3,4 +3,7 @@
 .DS_Store
 
 db/data/*
-!db/data/.gitkeep
+db/testdata/*
+
+docker-compose.override.yml
+.devcontainer.json
